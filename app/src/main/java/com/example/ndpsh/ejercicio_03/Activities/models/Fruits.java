@@ -7,20 +7,24 @@ public class Fruits {
 
     public String name;
     public String specs;
-    public int limit;
+    public int quantity;
     public int imgback;
-    public int imgicon;
+
+    // Valores accesibles estáticamente
+    public static final int LIMIT_QUANTITY = 10;
+    public static final int RESET_VALUE_QUANTITY = 0;
+
 
     public Fruits () {
 
     }
 
-        public Fruits(String name, String specs, int limit, int imgback, int imgicon) {
+        public Fruits(String name, String specs, int limit, int imgback ) {
             this.name = name;
             this.specs = specs;
-            this.limit = limit;
+            this.quantity = quantity;
             this.imgback = imgback;
-            this.imgicon = imgicon;
+
         }
 
         public String getName() {
@@ -39,12 +43,12 @@ public class Fruits {
         this.specs = specs;
         }
 
-        public int getLimit() {
-        return limit;
+        public int getQuantity() {
+        return quantity;
         }
 
-        public void setLimit(int limit) {
-        this.limit = limit;
+        public void setQuantity(int quantity) {
+        this.quantity = quantity;
         }
 
         public int getImgback() {
@@ -55,11 +59,16 @@ public class Fruits {
         this.imgback = imgback;
         }
 
-        public int getImgicon() {
-        return imgicon;
-        }
+    // Añadir cantidad
+    public void addQuantity(int quantity) {
+        if (this.quantity < LIMIT_QUANTITY)
+            this.quantity += quantity;
+    }
 
-        public void setImgicon(int imgicon) {
-        this.imgicon = imgicon;
-        }
+    // Reset cantidad
+    public void resetQuantity() {
+        this.quantity = RESET_VALUE_QUANTITY;
+    }
+
+
 }

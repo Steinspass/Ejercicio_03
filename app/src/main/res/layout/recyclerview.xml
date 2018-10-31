@@ -10,6 +10,30 @@
     android:foreground="?android:attr/selectableItemBackground"
     card_view:cardBackgroundColor="#E2E2E2"
     card_view:cardCornerRadius="4dp">
+    
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:textSize="28dp"
+        android:textStyle="italic"/>
+    <TextView
+        android:id="@+id/textSpecs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="220dp"/>
+    <TextView
+        android:id="@+id/textQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="310dp"/>
+    <ImageView
+        android:id="@+id/imgFruit"
+        android:layout_width="180dp"
+        android:layout_height="200dp" />
 
 
 
