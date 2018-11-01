@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 import com.example.ndpsh.ejercicio_03.Activities.MyAdapter;
 import com.example.ndpsh.ejercicio_03.Activities.models.Fruits;
 import com.example.ndpsh.ejercicio_03.R;
@@ -42,13 +43,12 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
 
 
-       mAdapter = new MyAdapter(fruits, R.layout.recyclerview, this, new MyAdapter.OnItemClickListener() {
-           @Override
-           public void onItemClick(Fruits fruit, int position) {
-                fruit.addQuantity(1);
-                mAdapter.notifyItemChanged(position);
-           }
-       });
+     mAdapter = new MyAdapter(fruits, R.layout.recyclerview, new MyAdapter.OnItemClickListener() {
+         @Override
+         public void onItemClick(Fruits fruit, int position) {
+             removeFruits(position);
+         }
+     });
 
 
         mRecyclerView.setHasFixedSize(true);
@@ -69,27 +69,37 @@ public class MainActivity extends AppCompatActivity {
             case R.id.add_fruit:
                 // Rescatamos el número de frutas para saber en que posición insertaremos
                 int position = fruits.size();
-                fruits.add(position, new Fruits("Plum " + (++counter), "Fruit added by the user", R.drawable.plum_bg, R.mipmap.ic_plum, 0));
+                fruits.add(position, new Fruits("Plum " + (++counter), "Fruit added by the user", R.drawable.plum_bg, 0));
                 mAdapter.notifyItemInserted(position);
                 mLayoutManager.scrollToPosition(position);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
 
+        }
     }
 
     //Lista de frutas
     private List<Fruits> getAllFruits() {
         return new ArrayList<Fruits>() {{
-            add(new Fruits("Manzana", "Aragon", 0, R.drawable.apple_bg));
-            add(new Fruits("Pera", "Zaragoza", 7, R.drawable.pear_bg));
-            add(new Fruits("Platano", "Gran Canarias", 9, R.drawable.banana_bg));
-            add(new Fruits("Cereza", "Leon", 6, R.drawable.cherry_bg));
-            add(new Fruits("Arandanos", "Rioja", 3, R.drawable.raspberry_bg ));
-            add(new Fruits("Naranja", "Almeria", 10, R.drawable.orange_bg));
-            add(new Fruits("Fresa","Huelva", 2, R.drawable.strawberry_bg));
-            add(new Fruits("Ciruela", "Murcia", 8, R.drawable.plum_bg));
+
+            add(new Fruits("Manzana", "Descripcion", 0, R.drawable.apple_bg));
+            add(new Fruits("Platano", "Descripcion", 0, R.drawable.banana_bg));
+            add(new Fruits("Pera", "Descripcion", 0, R.drawable.pear_bg));
+            add(new Fruits("Fresa", "Descripcion", 0,R.drawable.strawberry_bg));
+            add(new Fruits("Naranja", "Descripcion", 0, R.drawable.orange_bg));
+            add(new Fruits("Arandanos", "Descripcion", 0, R.drawable.raspberry_bg));
+            add(new Fruits("Cereza", "Descripcion", 0 ,R.drawable.cherry_bg));
+
         }};
     }
+
+    private void removeFruits(int position){
+
+        findViewById(R.id.delete_fruit);
+        fruits.remove(position);
+        mAdapter.notifyItemRemoved(position);
+    }
+
 
 }
