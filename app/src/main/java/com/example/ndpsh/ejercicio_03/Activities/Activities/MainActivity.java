@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
     private List<Fruits> getAllFruits() {
         return new ArrayList<Fruits>() {{
 
-            add(new Fruits("Manzana", "Descripcion", 0, R.drawable.apple_bg));
-            add(new Fruits("Platano", "Descripcion", 0, R.drawable.banana_bg));
-            add(new Fruits("Pera", "Descripcion", 0, R.drawable.pear_bg));
-            add(new Fruits("Fresa", "Descripcion", 0,R.drawable.strawberry_bg));
-            add(new Fruits("Naranja", "Descripcion", 0, R.drawable.orange_bg));
-            add(new Fruits("Arandanos", "Descripcion", 0, R.drawable.raspberry_bg));
-            add(new Fruits("Cereza", "Descripcion", 0 ,R.drawable.cherry_bg));
+            add(new Fruits("Manzana", "Descripcion", 2, R.drawable.apple_bg));
+            add(new Fruits("Platano", "Descripcion", 6, R.drawable.banana_bg));
+            add(new Fruits("Pera", "Descripcion", 8, R.drawable.pear_bg));
+            add(new Fruits("Fresa", "Descripcion", 7,R.drawable.strawberry_bg));
+            add(new Fruits("Naranja", "Descripcion", 4, R.drawable.orange_bg));
+            add(new Fruits("Arandanos", "Descripcion", 9, R.drawable.raspberry_bg));
+            add(new Fruits("Cereza", "Descripcion", 2 ,R.drawable.cherry_bg));
 
         }};
     }
